@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public struct ColorData
 {
@@ -14,6 +15,8 @@ public struct ColorData
 
 public class RoundProp : MonoBehaviour
 {
+    [SerializeField] private GameObject ColorTextBackgroundObject = null;
+
     public ColorData RoundText { get; private set; }
     public ColorData RoundColor { get; private set; }
     public bool Reverse { get; private set; }
@@ -47,6 +50,10 @@ public class RoundProp : MonoBehaviour
     {
         RoundText = RandomColor();
         RoundColor = RandomColor();
+        if (ColorTextBackgroundObject != null)
+        {
+            ColorTextBackgroundObject.GetComponent<Image>().color = 0.5f * RandomColor().Color;
+        }
         
         if (!RoundText.Equals(RoundColor))
         {

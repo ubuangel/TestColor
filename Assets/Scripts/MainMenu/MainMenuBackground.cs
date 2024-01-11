@@ -7,48 +7,29 @@ namespace MainMenu
     public class MainMenuBackground : MonoBehaviour
     {
         [SerializeField] private Image background;
-        [SerializeField] private RawImage checkerboard;
-        [SerializeField] private float speed;
+        [SerializeField] private float swapColorRate;
 
         private float _time;
-        private int _x = -1;
-        private int _y = 1;
-        
+
         private void Start()
         {
-            var chosen = RoundProp.RandomColor().Color;
-            background.color = chosen * 0.85f;
-            checkerboard.color = chosen;
+            background.color = RoundProp.RandomColor().Color * 0.85f;
         }
 
         private void Update()
         {
             _time += Time.deltaTime;
-            if (_time >= 5f)
+            if (_time >= swapColorRate)
             {
-                _time -= 5f;
+                _time = 0.0f;
                 SwitchColor();
-
-                var choice = Random.Range(0, 2);
-                _x = choice == 0 ? 1 : -1;
-            
-                choice = Random.Range(0, 2);
-                _y = choice == 0 ? 1 : -1;
-
-                speed = Random.Range(0.1f, 0.8f);
             }
-        
-            var length = Mathf.Lerp(2, 10, Mathf.PingPong(Time.time * 0.05f, 1));
-            checkerboard.uvRect = new Rect(
-                checkerboard.uvRect.position + new Vector2(speed * _x, speed * _y) * Time.deltaTime,
-                new Vector2(length, length)
-            );
         }
 
         private void SwitchColor()
         {
             StopAllCoroutines();
-            StartCoroutine(FadeColor(checkerboard.color, RoundProp.RandomColor().Color));
+            StartCoroutine(FadeColor(background.color, RoundProp.RandomColor().Color * 0.85f));
         }
 
         private IEnumerator FadeColor(Color init, Color final)
@@ -61,14 +42,12 @@ namespace MainMenu
                 elapsed += Time.deltaTime;
 
                 var temp = Color.Lerp(init, final, elapsed / duration);
-                background.color = temp * 0.85f;
-                checkerboard.color = temp;
+                background.color = temp;
 
                 yield return null;
             }
 
-            background.color = final * 0.85f;
-            checkerboard.color = final;
+            background.color = final;
         }
     }
 }

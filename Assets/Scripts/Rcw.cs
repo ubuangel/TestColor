@@ -27,7 +27,13 @@ public class Rcw : MonoBehaviour
     private bool _lost;
     private bool _started;
     private bool _paused;
-    
+    private int _inputAction { get; set; } = 0;
+
+    public void SetInputAction(int val)
+    {
+        _inputAction = val;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -70,45 +76,10 @@ public class Rcw : MonoBehaviour
         }
 
         var match = roundManager.RoundText.Equals(roundManager.RoundColor);
-
-        ///////////////////////////////////////////////////////////
-        var reversed = roundManager.Reverse;
-        if (Input.GetKeyUp(KeyCode.RightArrow))
+        if (_inputAction > 0)
         {
-            if (!match)
-            {
-                WinRound();
-            }
-            else
-            {
-                LoseRound(); 
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            if (!match)
-            {
-                LoseRound();
-            }
-            else
-            {
-                WinRound(); 
-            }
-        }
-        /*if (Input.GetButton("Right"))
-        {
-            if (!match)
-            {
-                LoseRound();
-            }
-            else
-            {
-                WinRound();
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            if (!match)
+            if (((_inputAction == 1) && match) ||
+                ((_inputAction == 2) && !match))
             {
                 WinRound();
             }
@@ -116,61 +87,8 @@ public class Rcw : MonoBehaviour
             {
                 LoseRound();
             }
-        }*/
-
-        /*
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            if ( !match)
-            {
-                LoseRound();
-            }
-            else
-            {
-                WinRound();
-            }
+            _inputAction = 0;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            if (!match)
-            {
-                WinRound();
-            }
-            else
-            {
-                LoseRound();
-            }
-        }
-        ///////////////////////////////////////////////////////////
-        ///
-
-
-     
-         var reversed = roundManager.Reverse;
-        
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            if ((reversed && match) || (!reversed && !match))
-            {
-                LoseRound();
-            }
-            else
-            {
-                WinRound();
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            if ((reversed && match) || (!reversed && !match))
-            {
-                WinRound();
-            }
-            else
-            {
-                LoseRound();
-            }
-        }
-         */
     }
 
     private void WinRound()
