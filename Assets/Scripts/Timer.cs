@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public const float RoundTime = 6.0f; // ETODO: Aca cambias el tiempo pe (TOTAL! => es el tiempo de pre-juego (esperar)
+    public const float RoundTime = 0.5f * 6.0f; // Half of the real Round Time to match halfed time pass
     public float CurrTime { get; private set; } = RoundTime;
 
     private bool _paused = true;
@@ -16,21 +16,13 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         if (!_paused)
-        {//TIME
-            CurrTime -= Time.deltaTime/2;
+        {
+            CurrTime -= 0.5f * Time.deltaTime;
         }
     }
 
     public void Reset()
     {
-        // adding round time is more accurate over time than resetting it
-        if (CurrTime + RoundTime > RoundTime)
-        {
-            CurrTime = RoundTime;
-        }
-        else
-        {
-            CurrTime += RoundTime;
-        }
+        CurrTime = RoundTime;
     }
 }
