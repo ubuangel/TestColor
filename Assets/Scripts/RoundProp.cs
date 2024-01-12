@@ -74,6 +74,10 @@ public class RoundProp : MonoBehaviour
             _option2Button.GetComponent<Image>().color = RoundColors[1].Color;
             _option3Button.GetComponent<Image>().color = RoundColors[2].Color;
         }
+        else
+        {
+            RoundText = RandomColor();
+        }
 
         if (!RoundText.Equals(RoundColor))
         {
