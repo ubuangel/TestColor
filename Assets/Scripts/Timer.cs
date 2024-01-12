@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public const float RoundTime = 3.0f;
+    public const float RoundTime = 6.0f; // ETODO: Aca cambias el tiempo pe (TOTAL! => es el tiempo de pre-juego (esperar)
     public float CurrTime { get; private set; } = RoundTime;
 
     private bool _paused = true;
