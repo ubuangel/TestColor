@@ -8,8 +8,7 @@ namespace InGame
         [SerializeField] private GameObject mainCanvas;
         [SerializeField] private GameObject gameOverCanvas;
         [SerializeField] private GameObject pauseCanvas;
-    
-        [SerializeField] private TMP_Text score;
+
         [SerializeField] private TMP_Text colorWord;
     
         private void Start()
@@ -21,10 +20,6 @@ namespace InGame
         {
             mainCanvas.SetActive(false);
             gameOverCanvas.SetActive(true);
-
-            score.text = Rcw.Instance.Score.ToString();
-            //colorWord.text = Rcw.Instance.roundManager.RoundText.Name.ToLower();
-            //colorWord.color = Rcw.Instance.roundManager.RoundColor.Color;
         
             Destroy(mainCanvas);
             Destroy(pauseCanvas);

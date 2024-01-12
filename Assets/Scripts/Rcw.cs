@@ -1,37 +1,47 @@
 using System;
 using System.Collections;
 using UnityEngine;
+
+public enum InputAction
+{
+    None = 0,
+    Match = 1,
+    NoMatch = 2,
+    Option1 = 3,
+    Option2 = 4,
+    Option3 = 5
+}
+
 public class Rcw : MonoBehaviour
 {
     public static Rcw Instance { get; private set; }
-    
+
     public int Score { get; private set; }
     public int Lives { get; private set; } = 3;
 
     public event Action GameInit; 
     public event Action GameStart;
     public event Action GameLost;
-    
+
     public event Action ScoreChanged;
     public event Action LifeLost;
     public event Action ColorWordChanged;
-    public event Action ReverseChanged;
-    
+
     public event Action RoundWon;
     public event Action RoundLost;
-    
+
     public Timer timeManager;
     public RoundProp roundManager;
     public PauseBehavior pauseManager;
-    
+
     private bool _lost;
     private bool _started;
     private bool _paused;
-    private int _inputAction { get; set; } = 0;
+    private InputAction _inputAction = InputAction.None;
 
     public void SetInputAction(int val)
     {
-        _inputAction = val;
+        _inputAction = (InputAction)val;
     }
 
     private void Awake()
@@ -74,12 +84,16 @@ public class Rcw : MonoBehaviour
         {
             LoseRound();
         }
-
-        var match = roundManager.RoundText.Equals(roundManager.RoundColor);
-        if (_inputAction > 0)
+        if (_inputAction == InputAction.None)
         {
-            if (((_inputAction == 1) && match) ||
-                ((_inputAction == 2) && !match))
+            return;
+        }
+
+        if (_inputAction < InputAction.Option1)
+        {
+            bool match = roundManager.RoundText.Equals(roundManager.RoundColor);
+            if (((_inputAction == InputAction.Match) && match) ||
+                ((_inputAction == InputAction.NoMatch) && !match))
             {
                 WinRound();
             }
@@ -87,8 +101,21 @@ public class Rcw : MonoBehaviour
             {
                 LoseRound();
             }
-            _inputAction = 0;
         }
+        else
+        {
+            int optionIdx = _inputAction - InputAction.Option1;
+            ColorData pickedColor = roundManager.RoundColors[optionIdx];
+            if (roundManager.RoundText.Equals(pickedColor))
+            {
+                WinRound();
+            }
+            else
+            {
+                LoseRound();
+            }
+        }
+        _inputAction = InputAction.None;
     }
 
     private void WinRound()
@@ -140,16 +167,6 @@ public class Rcw : MonoBehaviour
 
     private void PrepareNextRound()
     {
-        var preReset = roundManager.Reverse;
-        
-        roundManager.ResetReverse();
-        roundManager.ChooseReverse();
-        
-        if (roundManager.Reverse != preReset)
-        {
-            ReverseChanged?.Invoke();
-        }
-        
         roundManager.ChooseColors();
         ColorWordChanged?.Invoke();
         

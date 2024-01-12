@@ -12,7 +12,6 @@ namespace InGame
         
         private void Start()
         {
-            Rcw.Instance.ReverseChanged += OnReverseChanged;
             Rcw.Instance.RoundWon += OnRoundEnd;
             Rcw.Instance.RoundLost += OnRoundEnd;
             Rcw.Instance.GameLost += OnGameLost;
