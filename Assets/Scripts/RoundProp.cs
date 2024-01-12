@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,11 +16,14 @@ public struct ColorData
 
 public class RoundProp : MonoBehaviour
 {
-    [SerializeField] private GameObject ColorTextBackgroundObject = null;
+    [SerializeField] private GameObject _colorTextBackgroundObject;
+    [SerializeField] private GameObject _option1Button;
+    [SerializeField] private GameObject _option2Button;
+    [SerializeField] private GameObject _option3Button;
 
     public ColorData RoundText { get; private set; }
     public ColorData RoundColor { get; private set; }
-    public bool Reverse { get; private set; }
+    public ColorData[] RoundColors { get; private set; } = new ColorData[3];
     
     private ColorData _prevText;
     private ColorData _prevColor;
@@ -48,13 +52,29 @@ public class RoundProp : MonoBehaviour
     // around 1 correct match for every 1.7 incorrect matches
     public void ChooseColors()
     {
-        RoundText = RandomColor();
         RoundColor = RandomColor();
-        if (ColorTextBackgroundObject != null)
+        if (_colorTextBackgroundObject != null)
         {
-            ColorTextBackgroundObject.GetComponent<Image>().color = 0.5f * RandomColor().Color;
+            RoundText = RandomColor();
+            _colorTextBackgroundObject.GetComponent<Image>().color = 0.5f * RandomColor().Color;
         }
-        
+        if ((_option1Button != null) && (_option2Button != null) && (_option3Button != null))
+        {
+            System.Random random = new System.Random();
+
+            ColorData[] newColorList = ColorList.ToArray();
+            Shuffle(newColorList);
+
+            RoundColors[0] = newColorList[0];
+            RoundColors[1] = newColorList[1];
+            RoundColors[2] = newColorList[2];
+            RoundText = RoundColors[random.Next(3)];
+
+            _option1Button.GetComponent<Image>().color = RoundColors[0].Color;
+            _option2Button.GetComponent<Image>().color = RoundColors[1].Color;
+            _option3Button.GetComponent<Image>().color = RoundColors[2].Color;
+        }
+
         if (!RoundText.Equals(RoundColor))
         {
             _untilGuarantee -= 1;
@@ -78,14 +98,13 @@ public class RoundProp : MonoBehaviour
         _prevColor = RoundColor;
     }
 
-    public void ChooseReverse()
+    private void Shuffle<T>(T[] data)
     {
-        // 10% chance of reversal
-        Reverse = Random.Range(0, 10) == 0;
-    }
-
-    public void ResetReverse()
-    {
-        Reverse = false;
+        System.Random random = new System.Random();
+        for (int i = 0; i < (data.Length - 1); ++i)
+        {
+            int r = random.Next(i, data.Length);
+            (data[r], data[i]) = (data[i], data[r]);
+        }
     }
 }

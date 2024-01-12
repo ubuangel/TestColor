@@ -227,7 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8672694b5c0292342a71cc4ca2370684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorTextBackgroundObject: {fileID: 1245583478}
+  _colorTextBackgroundObject: {fileID: 1245583478}
+  _option1Button: {fileID: 0}
+  _option2Button: {fileID: 0}
+  _option3Button: {fileID: 0}
 --- !u!4 &44447446
 Transform:
   m_ObjectHideFlags: 0
