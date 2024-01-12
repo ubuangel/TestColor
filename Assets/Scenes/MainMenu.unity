@@ -825,7 +825,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logo: {fileID: 1186990704}
-  playButton: {fileID: 820912248}
+  playButtonEasy: {fileID: 343275447}
+  playButtonMedium: {fileID: 820912248}
+  playButtonHard: {fileID: 1362140563}
   exitButton: {fileID: 932192125}
   creditsPanel: {fileID: 1864422719}
   creditsButton: {fileID: 511858787}

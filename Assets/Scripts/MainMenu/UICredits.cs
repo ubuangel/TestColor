@@ -8,7 +8,9 @@ namespace MainMenu
     public class UICredits : MonoBehaviour, IPointerEnterHandler
     {
         [SerializeField] private RectTransform logo;
-        [SerializeField] private RectTransform playButton;
+        [SerializeField] private RectTransform playButtonEasy;
+        [SerializeField] private RectTransform playButtonMedium;
+        [SerializeField] private RectTransform playButtonHard;
         [SerializeField] private RectTransform exitButton;
         [SerializeField] private RectTransform creditsPanel;
         
@@ -18,8 +20,12 @@ namespace MainMenu
 
         private float _logoXPosA;
         private float _logoXPosB;
-        private float _playButtonXPosA;
-        private float _playButtonXPosB;
+        private float _playButtonEasyXPosA;
+        private float _playButtonEasyXPosB;
+        private float _playButtonMediumXPosA;
+        private float _playButtonMediumXPosB;
+        private float _playButtonHardXPosA;
+        private float _playButtonHardXPosB;
         private float _exitButtonXPosA;
         private float _exitButtonXPosB;
         private float _creditsPanelXPosA;
@@ -34,8 +40,14 @@ namespace MainMenu
             _logoXPosA = logo.anchoredPosition.x;
             _logoXPosB = _logoXPosA - transitionOffset;
 
-            _playButtonXPosA = playButton.anchoredPosition.x;
-            _playButtonXPosB = _playButtonXPosA - transitionOffset;
+            _playButtonEasyXPosA = playButtonEasy.anchoredPosition.x;
+            _playButtonEasyXPosB = _playButtonEasyXPosA - transitionOffset;
+
+            _playButtonMediumXPosA = playButtonMedium.anchoredPosition.x;
+            _playButtonMediumXPosB = _playButtonMediumXPosA - transitionOffset;
+
+            _playButtonHardXPosA = playButtonHard.anchoredPosition.x;
+            _playButtonHardXPosB = _playButtonHardXPosA - transitionOffset;
 
             _exitButtonXPosA = exitButton.anchoredPosition.x;
             _exitButtonXPosB = _exitButtonXPosA - transitionOffset;
@@ -57,7 +69,9 @@ namespace MainMenu
 
             yield return new WaitForSeconds(0.15f);
 
-            StartCoroutine(TranslateX(playButton, _playButtonXPosA, _playButtonXPosB, 0.2f, true));
+            StartCoroutine(TranslateX(playButtonEasy, _playButtonEasyXPosA, _playButtonEasyXPosB, 0.2f, true));
+            StartCoroutine(TranslateX(playButtonMedium, _playButtonMediumXPosA, _playButtonMediumXPosB, 0.2f, true));
+            StartCoroutine(TranslateX(playButtonHard, _playButtonHardXPosA, _playButtonHardXPosB, 0.2f, true));
 
             yield return new WaitForSeconds(0.1f);
 
@@ -78,7 +92,9 @@ namespace MainMenu
 
             yield return new WaitForSeconds(0.1f);
 
-            StartCoroutine(TranslateX(playButton, _playButtonXPosB, _playButtonXPosA, 0.2f, true));
+            StartCoroutine(TranslateX(playButtonHard, _playButtonHardXPosB, _playButtonHardXPosA, 0.2f, true));
+            StartCoroutine(TranslateX(playButtonMedium, _playButtonMediumXPosB, _playButtonMediumXPosA, 0.2f, true));
+            StartCoroutine(TranslateX(playButtonEasy, _playButtonEasyXPosB, _playButtonEasyXPosA, 0.2f, true));
 
             yield return new WaitForSeconds(0.05f);
 
