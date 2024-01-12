@@ -62,7 +62,7 @@ public class Rcw : MonoBehaviour
         pauseManager.Resumed += () => _paused = false;
         
         GameInit?.Invoke();
-        yield return new WaitForSeconds(3f);////HERE
+        yield return new WaitForSeconds(6.0f); // ETODO: Aca cambias el tiempo pe (TOTAL! => es el tiempo de pre-juego (esperar)
         
         PrepareNextRound();
         Audio.Instance.musicSource.Stop();
