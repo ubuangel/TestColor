@@ -15,7 +15,10 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator LoadScene(string sceneName)
     {
-        animator.SetTrigger(Exit);
+        if (animator != null)
+        {
+            animator.SetTrigger(Exit);
+        }
         
         StartCoroutine(Audio.Instance.ChangeMusicVolume(0f, 0.4f));
 
