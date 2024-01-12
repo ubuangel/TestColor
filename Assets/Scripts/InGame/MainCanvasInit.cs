@@ -33,8 +33,8 @@ namespace InGame
             StartCoroutine(TranslateY(livesBg, 400, -75, 0.8f));
             StartCoroutine(TranslateY(pauseBg, 300, -75, 0.8f));
             
-            yield return new WaitForSeconds(1f);
-        
+            yield return new WaitForSeconds(4.0f); // ETODO: Aca cambias el tiempo exacto del "color=palabra"
+
             StartCoroutine(TranslateY(readyText, 0, -600, 0.3f));
             StartCoroutine(TranslateY(goText, 600, 0, 0.3f));
             Audio.Instance.sfxSource.PlayOneShot(AudioClips.Instance.go);
