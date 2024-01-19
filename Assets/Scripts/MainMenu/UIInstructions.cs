@@ -17,7 +17,7 @@ namespace MainMenu
         [SerializeField] private RectTransform exitButton;
         [SerializeField] private RectTransform creditsButton;
         
-        [SerializeField] private Button instructionsButton;
+      //  [SerializeField] private Button instructionsButton;
 
         private Vector2 _bgPosA;
         private Vector2 _bgPosB;
@@ -29,7 +29,7 @@ namespace MainMenu
 
         private void Start()
         { 
-            instructionsButton.onClick.AddListener(() => Audio.Instance.sfxSource.PlayOneShot(AudioClips.Instance.buttonClick));
+            //instructionsButton.onClick.AddListener(() => Audio.Instance.sfxSource.PlayOneShot(AudioClips.Instance.buttonClick));
             
             _bgPosA = background.anchoredPosition;
             _bgPosB = new Vector2(0, _bgPosA.y);
