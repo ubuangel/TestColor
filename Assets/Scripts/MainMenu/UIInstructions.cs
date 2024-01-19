@@ -13,7 +13,7 @@ namespace MainMenu
         [SerializeField] private RectTransform instructionsPanel;
 
         [SerializeField] private RectTransform logo;
-        [SerializeField] private RectTransform playButton;
+       // [SerializeField] private RectTransform playButton;
         [SerializeField] private RectTransform exitButton;
         [SerializeField] private RectTransform creditsButton;
         
@@ -59,7 +59,7 @@ namespace MainMenu
             
             yield return new WaitForSeconds(0.1f);
             
-            StartCoroutine(TranslateX(playButton, playButton.anchoredPosition.x, 2000, 0.2f, true));
+          //  StartCoroutine(TranslateX(playButton, playButton.anchoredPosition.x, 2000, 0.2f, true));
             StartCoroutine(TranslateX(instructionsPanel, instructionsPanel.anchoredPosition.x, 0, 0.5f, false));
             
             yield return new WaitForSeconds(0.2f);
@@ -74,7 +74,7 @@ namespace MainMenu
             
             yield return new WaitForSeconds(0.15f);
             
-            StartCoroutine(TranslateX(playButton, playButton.anchoredPosition.x, -400, 0.4f, false));
+            //StartCoroutine(TranslateX(playButton, playButton.anchoredPosition.x, -400, 0.4f, false));
 
             yield return new WaitForSeconds(0.1f);
             
