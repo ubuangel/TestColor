@@ -7,6 +7,8 @@ namespace MainMenu
 {
     public class UICredits : MonoBehaviour, IPointerEnterHandler
     {
+       // [SerializeField] private RectTransform background;
+
         [SerializeField] private RectTransform logo;
         [SerializeField] private RectTransform playButtonEasy;
         [SerializeField] private RectTransform playButtonMedium;
@@ -15,6 +17,7 @@ namespace MainMenu
         [SerializeField] private RectTransform creditsPanel;
         
         [SerializeField] private Button creditsButton;
+        [SerializeField] private RectTransform instructionsButton;
 
         [SerializeField] private float transitionOffset;
 
@@ -26,16 +29,30 @@ namespace MainMenu
         private float _playButtonMediumXPosB;
         private float _playButtonHardXPosA;
         private float _playButtonHardXPosB;
+
         private float _exitButtonXPosA;
         private float _exitButtonXPosB;
+
         private float _creditsPanelXPosA;
         private float _creditsPanelXPosB;
+
+        private Vector2 _bgPosA;
+        private Vector2 _bgPosB;
+
+        private Vector2 _bgSizeA;
+        private Vector2 _bgSizeB;
+
+       // public Button desinstruccion;
 
         private bool _open;
 
         private void Start()
         { 
             creditsButton.onClick.AddListener(() => Audio.Instance.sfxSource.PlayOneShot(AudioClips.Instance.buttonClick));
+           
+
+            //desinstruccion.onClick
+           
 
             _logoXPosA = logo.anchoredPosition.x;
             _logoXPosB = _logoXPosA - transitionOffset;
@@ -62,11 +79,34 @@ namespace MainMenu
             _open = !_open;
             StartCoroutine(_open ? OpenCredits() : CloseCredits());
         }
+          
+      /*  public void desactivar()
+        {
+            StopAllCoroutines();
+            
+           if( _onClick){
+
+                creditsButton.gameObject.SetActive=false ;
+
+           } else{
+
+                 creditsButton.gameObject.SetActive=true;
+
+           }
+             
+            
+        }
+        */
 
         private IEnumerator OpenCredits()
         {
             StartCoroutine(TranslateX(logo, _logoXPosA, _logoXPosB, 0.2f, true));
 
+           
+
+            yield return new WaitForSeconds(0.15f);
+            
+            StartCoroutine(TranslateX(instructionsButton, instructionsButton.anchoredPosition.x, -2000, 0.2f, true));
             yield return new WaitForSeconds(0.15f);
 
             StartCoroutine(TranslateX(playButtonEasy, _playButtonEasyXPosA, _playButtonEasyXPosB, 0.2f, true));
@@ -99,7 +139,15 @@ namespace MainMenu
             yield return new WaitForSeconds(0.05f);
 
             StartCoroutine(TranslateX(logo, _logoXPosB, _logoXPosA, 0.2f, true));
+            yield return new WaitForSeconds(0.05f);
+
+            StartCoroutine(TranslateX(instructionsButton, instructionsButton.anchoredPosition.x, 300, 0.2f, false));
+
         }
+
+
+
+
 
         private static IEnumerator TranslateX(RectTransform element, float initX, float finalX, float duration, bool easeIn)
         {
