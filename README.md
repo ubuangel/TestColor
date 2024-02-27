@@ -14,7 +14,7 @@
 <br />
 <div align="center">
 <a href="https://github.com/ubuangel/TestColor">
-    <!--<img src="images/pistola.jpg" alt="Logo" width="80" height="80">-->
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Acierta el Color</h3>
@@ -72,7 +72,16 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre este Proyecto
 
+### Objetivo
 
+* Reconocer y responder correctamente a las interferencias entre palabras y colores.
+* Objetivo de aprendizaje: Mejorar habilidades selectivas, Toma de decisiones rápida, resistencia a la interferencia (complejidad de niveles)
+
+
+
+¡Juega  en tu navegador con itch ! También hay versiones de Windows, Linux y macOS en lanzamientos .
+
+Basado en el efecto _[Stroop](https://en.wikipedia.org/wiki/Stroop_effect)_ y fuertemente inspirado en [OLDTV](https://store.steampowered.com/app/643270/OLDTV/) .
 ![Descripción de la imagen Markdown](/images/inicio.png)
 
 
@@ -103,7 +112,7 @@
 
 
 Para poner en funcionamiento una copia local, siga estos sencillos pasos de ejemplo.
-### Estructura
+
 
 <!--  ![Descripción de la imagen Markdown](/images/tree.png) -->
 
@@ -112,13 +121,10 @@ Para poner en funcionamiento una copia local, siga estos sencillos pasos de ejem
 
 * c#
 * VSCode
-* Unity Hub
+* Unity
 
 
-* Debian GNU/Linux 
-```sh
-  sudo apt-get update && sudo apt-get upgrade
-  ```
+
 
 
 ### Instalacion
@@ -131,7 +137,7 @@ Para poner en funcionamiento una copia local, siga estos sencillos pasos de ejem
    git clone https://github.com/ubuangel/TestColor.git
    ```
 
-2. Despliega
+2. Abrelo con Unity 2022.3.7f1
 
 <!--![imagen1][imagen1]-->
 
@@ -145,7 +151,12 @@ Para poner en funcionamiento una copia local, siga estos sencillos pasos de ejem
 
 Después de la instalación, se importa al proyecto y juega :
 
+Cada ronda. una palabra de color se mostrará en un color aleatorio para decidir si es correcto o no use el puntero y  toque  el color coincide con la palabra.
 
+
+ Cuanto más rápido respondas cada ronda, más puntos obtendrás. No hay final, pero las rondas duran tres segundos.
+
+Si no respondes a tiempo o te equivocas con la palabra, pierdes puntos y una vida. sólo tienes tres vidas, así que ten cuidado.
 
 ![Descripción de la imagen Markdown](/images/enjuego.png)
 
@@ -212,9 +223,11 @@ Link del Proyecto: [https://github.com/ubuangel/TestColor](https://github.com/ub
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Creditos
+
 
 ![Descripción de la imagen Markdown](/images/creditos.png)
+
+ Agradecer  a Eric Matyas (a través de [Sound Image](https://soundimage.org/) ) por la música y a _SubspaceAudio_ (a través de [OpenGameArt](https://opengameart.org/content/512-sound-effects-8-bit-style) ) por los efectos de sonido.
 
 
 <p align="right">(<a href="#readme-top">Volver arriba</a>)</p>
