@@ -154,9 +154,9 @@ Después de la instalación, se importa al proyecto y juega :
 Cada ronda. una palabra de color se mostrará en un color aleatorio para decidir si es correcto o no use el puntero y  toque  el color coincide con la palabra.
 
 
- Cuanto más rápido respondas cada ronda, más puntos obtendrás. No hay final, pero las rondas duran tres segundos.
+ Cuanto más rápido respondas cada ronda, más puntos obtendrás. No hay final, pero las rondas duran como tres segundos.
 
-Si no respondes a tiempo o te equivocas con la palabra, pierdes puntos y una vida. sólo tienes tres vidas, así que ten cuidado.
+Si no respondes a tiempo o te equivocas con la palabra, pierdes  una vida. sólo tienes tres vidas, así que ten cuidado.
 
 ![Descripción de la imagen Markdown](/images/enjuego.png)
 
@@ -223,7 +223,7 @@ Link del Proyecto: [https://github.com/ubuangel/TestColor](https://github.com/ub
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-
+Inspirado en [RCW](https://github.com/aczw/RCW?tab=readme-ov-file)
 
 ![Descripción de la imagen Markdown](/images/creditos.png)
 
