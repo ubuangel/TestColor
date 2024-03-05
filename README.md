@@ -187,7 +187,7 @@ Si no respondes a tiempo o te equivocas con la palabra, pierdes  una vida. sólo
     - [ ] Chinese
     - [X] Spanish
 
-Consulte los [problemas abiertos] (https://github.com/ubuangel/TestColor/issues) para obtener una lista completa de las funciones,caracteristicas propuestas (y problemas conocidos).
+Consulte los [problemas abiertos](https://github.com/ubuangel/TestColor/issues) para obtener una lista completa de las funciones,caracteristicas propuestas (y problemas conocidos).
 
 <p align="right">(<a href="#readme-top">Volver arriba</a>)</p>
 
