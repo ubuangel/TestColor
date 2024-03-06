@@ -252,7 +252,7 @@ Inspirado en [RCW](https://github.com/aczw/RCW?tab=readme-ov-file)
 [license-shield]: https://img.shields.io/github/license/ubuangel/TestColor.svg?style=for-the-badge
 [license-url]: https://github.com/ubuangel/TestColor/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/ubuangel
+[linkedin-url]: https://linkedin.com/in/angel-andres-bejar-merma-5baaba281
 [product-screenshot]: images/resultado1.png
 [Unity]: https://img.shields.io/badge/UNITY
 
